@@ -1,12 +1,3 @@
-/*
-fichiers.c
-----------
-
-Par mateo21, pour Le Site du Zér0 (www.siteduzero.com)
-
-Rôle : fonctions de lecture / écriture de fichiers de niveau.
-*/
-
 #include <stdlib.h>
 #include <stdio.h>
 #include <SDL/SDL.h>
