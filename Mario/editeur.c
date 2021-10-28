@@ -1,12 +1,3 @@
-/*
-editeur.c
----------
-
-Par mateo21, pour Le Site du Zér0 (www.siteduzero.com)
-
-Rôle : gestion de l'éditeur de niveaux.
-*/
-
 #include <stdlib.h>
 #include <stdio.h>
 #include <SDL/SDL.h>
@@ -35,7 +26,7 @@ void editeur(SDL_Surface* ecran)
     if (!chargerNiveau(carte))
         exit(EXIT_FAILURE);
 
-    // Boucle infinie de l'éditeur
+    // Boucle infinie de l'Ã©diteur
     while (continuer)
     {
         SDL_WaitEvent(&event);
@@ -47,24 +38,24 @@ void editeur(SDL_Surface* ecran)
             case SDL_MOUSEBUTTONDOWN:
                 if (event.button.button == SDL_BUTTON_LEFT)
                 {
-                    // On met l'objet actuellement choisi (mur, caisse...) à l'endroit du clic
+                    // On met l'objet actuellement choisi (mur, caisse...) Ã  l'endroit du clic
                     carte[event.button.x / TAILLE_BLOC][event.button.y / TAILLE_BLOC] = objetActuel;
-                    clicGaucheEnCours = 1; // On active un booléen pour retenir qu'un bouton est enfoncé
+                    clicGaucheEnCours = 1; // On active un boolÃ©en pour retenir qu'un bouton est enfoncÃ©
                 }
-                else if (event.button.button == SDL_BUTTON_RIGHT) // Le clic droit sert à effacer
+                else if (event.button.button == SDL_BUTTON_RIGHT) // Le clic droit sert Ã  effacer
                 {
                     carte[event.button.x / TAILLE_BLOC][event.button.y /TAILLE_BLOC] = VIDE;
                     clicDroitEnCours = 1;
                 }
                 break;
-            case SDL_MOUSEBUTTONUP: // On désactive le booléen qui disait qu'un bouton était enfoncé
+            case SDL_MOUSEBUTTONUP: // On dÃ©sactive le boolÃ©en qui disait qu'un bouton Ã©tait enfoncÃ©
                 if (event.button.button == SDL_BUTTON_LEFT)
                     clicGaucheEnCours = 0;
                 else if (event.button.button == SDL_BUTTON_RIGHT)
                     clicDroitEnCours = 0;
                 break;
             case SDL_MOUSEMOTION:
-                if (clicGaucheEnCours) // Si on déplace la souris et que le bouton gauche de la souris est enfoncé
+                if (clicGaucheEnCours) // Si on dÃ©place la souris et que le bouton gauche de la souris est enfoncÃ©
                 {
                     carte[event.motion.x / TAILLE_BLOC][event.motion.y / TAILLE_BLOC] = objetActuel;
                 }
@@ -101,10 +92,10 @@ void editeur(SDL_Surface* ecran)
                 break;
         }
 
-        // Effacement de l'écran
+        // Effacement de l'Ã©cran
         SDL_FillRect(ecran, NULL, SDL_MapRGB(ecran->format, 255, 255, 255));
 
-        // Placement des objets à l'écran
+        // Placement des objets Ã  l'Ã©cran
         for (i = 0 ; i < NB_BLOCS_LARGEUR ; i++)
         {
             for (j = 0 ; j < NB_BLOCS_HAUTEUR ; j++)
@@ -130,7 +121,7 @@ void editeur(SDL_Surface* ecran)
             }
         }
 
-        // Mise à jour de l'écran
+        
         SDL_Flip(ecran);
     }
 
